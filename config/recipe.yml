@@ -32,9 +32,9 @@ modules:
       - libadwaita
       - tailscale
 
-      - gstreamer1-plugins-bad
       - gstreamer1-plugins-good
       - gstreamer1-plugins-base
+      - gstreamer1-plugins-ugly
       - gstreamer1-plugin-openh264
       - gstreamer1-plugin-libav
       - vlc
@@ -44,6 +44,7 @@ modules:
       - NetworkManager-tui
       - NetworkManager-wifi
       - smartmontools
+      - htop
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
