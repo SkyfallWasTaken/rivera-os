@@ -12,6 +12,9 @@
 ARG IMAGE_MAJOR_VERSION=39
 ARG BASE_IMAGE_URL=ghcr.io/ublue-os/silverblue-main
 
+# Fix for `bling`
+ARG FEDORA_MAJOR_VERSION=${IMAGE_MAJOR_VERSION}
+
 FROM ${BASE_IMAGE_URL}:${IMAGE_MAJOR_VERSION}
 
 # The default recipe is set to the recipe's default filename
