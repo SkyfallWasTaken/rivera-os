@@ -22,10 +22,22 @@ modules:
           # config directory on ostree. Read more in the files module's README
 
   - type: rpm-ostree
-    repos: # - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
+    repos:
+      - https://copr.fedorainfracloud.org/coprs/atim/starship/repo/fedora-%OS_VERSION%/atim-starship-fedora-%OS_VERSION%.repo
+      - https://pkgs.tailscale.com/stable/fedora/tailscale.repo
+      # - https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-%OS_VERSION%.noarch.rpm
+      # - https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-%OS_VERSION%.noarch.rpm
     install:
       # - micro
       - starship
+      - python3-pip
+      - libadwaita
+      - tailscale
+
+      - gstreamer1-plugins-{bad-\*,good-\*,base}
+      - gstreamer1-plugin-openh264
+      - gstreamer1-plugin-libav
+      - vlc
     remove:
       - firefox # default firefox removed in favor of flatpak
       - firefox-langpacks # langpacks needs to also be removed to prevent dependency problems
@@ -46,6 +58,19 @@ modules:
       - laptop # installs TLP and configures your system for laptop usage
       - flatpaksync # allows synchronization of user-installed flatpaks, see separate documentation section
 
+  - type: fonts
+    fonts:
+      nerd-fonts:
+        - JetBrainsMono
+        - FiraCode
+      google-fonts:
+        - Roboto
+        - Fira Sans
+        - Open Sans
+        - Figtree
+        - Noto Sans
+        - Merriweather
+        - Instrument Sans
 
   - type: yafti
       # if included, yafti and it's dependencies (pip & libadwaita)
